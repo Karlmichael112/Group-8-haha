@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #e3ffe9 0%, #a1c4fd 100%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .top-nav {
+            background: linear-gradient(90deg, #2b5876 0%, #4e4376 100%);
+            box-shadow: 0 6px 25px #2b587650;
+            padding: 0 8vw 0 2vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.44em;
+            font-weight: 700;
+            color: #fbfbfb;
+            letter-spacing: 2px;
+            padding: 19px 0;
+        }
+        .nav-brand i {
+            font-size: 2em;
+            color: #64ffda;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5vw;
+        }
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #faf9fd;
+            font-weight: 550;
+            font-size: 1.04em;
+            letter-spacing: 1px;
+            transition: color 0.19s, transform 0.18s;
+            padding: 12px 10px 6px;
+            border-radius: 11px 11px 0 0;
+            position: relative;
+        }
+        .nav-link i {
+            font-size: 1.7em;
+            margin-bottom: 2px;
+            color: #64ffda;
+            transition: color 0.18s, transform 0.23s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #64ffda;
+            background: rgba(76, 201, 240, 0.10);
+        }
+        .nav-link:hover i, .nav-link.active i {
+            color: #57aaff;
+            transform: scale(1.11);
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 28px;
+        }
+        .delete-card {
+            background: rgba(255,255,255,0.97);
+            border-radius: 28px;
+            box-shadow: 0 10px 44px 0px #41b8f644;
+            padding: 42px 42px 35px 42px;
+            margin-top: 42px;
+            max-width: 460px;
+            width: 98%;
+            text-align: center;
+            animation: cardfadein 0.6s;
+        }
+        @keyframes cardfadein {
+            from { opacity: 0; transform: translateY(30px);}
+            to   { opacity: 1; transform: translateY(0);}
+        }
+        .delete-title {
+            color: #d22222;
+            font-size: 1.95em;
+            font-weight: 700;
+            margin-bottom: 18px;
+            display: flex;
+            gap: 13px;
+            justify-content: center;
+            align-items: center;
+        }
+        .delete-title i {
+            color: #fa7777;
+            font-size: 1.16em;
+            animation: pulseDelete 1.7s infinite;
+        }
+        @keyframes pulseDelete {
+            0% { color: #fa7777; transform: scale(1); }
+            50% { color: #a1c4fd; transform: scale(1.16); }
+            100% { color: #fa7777; transform: scale(1); }
+        }
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1em;
+        }
+        .input-row i {
+            color: #fa7777;
+            font-size: 1.13em;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px 12px;
+            border-radius: 11px;
+            border: 1.5px solid #ffcccc;
+            background: #fff2f2;
+            color: #d22222;
+            font-size: 1.07em;
+        }
+        input[type="text"]:focus {
+            border-color: #fa7777;
+            outline: none;
+        }
+        .delete-btn {
+            background: linear-gradient(90deg,#fa7777,#64ffda 75%);
+            color: white;
+            font-weight: 700;
+            border: none;
+            border-radius: 16px;
+            padding: 12px 0;
+            width: 100%;
+            cursor: pointer;
+            box-shadow: 0 6px 16px rgba(255,100,100,0.13);
+            font-size: 1.08em;
+            margin-top: 10px;
+            letter-spacing: .5px;
+            transition: background 0.27s;
+        }
+        .delete-btn:hover {
+            background: linear-gradient(90deg,#64ffda,#fa7777 100%);
+        }
+        .delete-footer {
+            margin-top: 2em;
+            color: #de2c2c;
+            font-size: 1.07em;
+        }
+        .delete-footer i { margin: 0 4px; color: #fa7777;}
+        @media (max-width:800px) {
+            .top-nav {flex-direction: column; gap: 2px; padding: 0 1.5vw;}
+            .nav-links {gap: 15px;}
+        }
+        @media (max-width:600px) {
+            .container {padding: 0 4px;}
+            .delete-card { padding: 18px 5px 12px 5px;}
+            .top-nav {flex-direction: column; gap: 0; padding: 0;}
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-brand">
+            <i class="fas fa-server"></i>
+            Group 8 IT Portal
+        </div>
+        <div class="nav-links">
+            <a class="nav-link" href="insert.html" title="Insert">
+                <i class="fas fa-database"></i>
+                Insert
+            </a>
+            <a class="nav-link" href="search.html" title="Search">
+                <i class="fas fa-search"></i>
+                Search
+            </a>
+            <a class="nav-link" href="update.html" title="Update">
+                <i class="fas fa-code-branch"></i>
+                Update
+            </a>
+            <a class="nav-link active" href="delete.html" title="Delete">
+                <i class="fas fa-times-circle"></i>
+                Delete
+            </a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="delete-card">
+            <div class="delete-title">
+                <i class="fas fa-times-circle"></i> Delete Registration
+            </div>
+            <form action="delete.php" method="POST">
+                <div class="input-row">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="delete_name" name="delete_name" required placeholder="Enter Name to Delete">
+                </div>
+                <button class="delete-btn" type="submit"><i class="fas fa-times-circle"></i> Delete</button>
+            </form>
+            <div class="delete-footer">
+                <i class="fas fa-exclamation-circle"></i>
+                Double check before deleting
+            </div>
+        </div>
+    </div>
+</body>
+</html>
