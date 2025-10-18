@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            background: linear-gradient(120deg, #e3ffe9 0%, #a1c4fd 100%);
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .top-nav {
+            background: linear-gradient(90deg, #2b5876 0%, #4e4376 100%);
+            box-shadow: 0 6px 25px #2b587650;
+            padding: 0 8vw 0 2vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.48em;
+            font-weight: 700;
+            color: #fbfbfb;
+            letter-spacing: 2px;
+            padding: 19px 0;
+        }
+        .nav-brand i {
+            font-size: 2em;
+            color: #64ffda;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5vw;
+        }
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #faf9fd;
+            font-weight: 550;
+            font-size: 1.04em;
+            letter-spacing: 1px;
+            transition: color 0.19s, transform 0.18s;
+            padding: 12px 10px 6px;
+            border-radius: 11px 11px 0 0;
+            position: relative;
+        }
+        .nav-link i {
+            font-size: 1.7em;
+            margin-bottom: 2px;
+            color: #64ffda;
+            transition: color 0.18s, transform 0.23s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #64ffda;
+            background: rgba(76, 201, 240, 0.10);
+        }
+        .nav-link:hover i, .nav-link.active i {
+            color: #57aaff;
+            transform: scale(1.11);
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 28px;
+        }
+        .form-card {
+            background: rgba(255,255,255,0.94);
+            border-radius: 28px;
+            box-shadow: 0 10px 44px 0px #41b8f644;
+            padding: 42px 42px 35px 42px;
+            margin-top: 42px;
+            max-width: 460px;
+            width: 98%;
+            text-align: center;
+            animation: cardfadein 0.6s;
+        }
+        @keyframes cardfadein {
+            from { opacity: 0; transform: translateY(30px);}
+            to   { opacity: 1; transform: translateY(0);}
+        }
+        .form-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: #3848d1;
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 13px;
+        }
+        .form-header i {
+            color: #57aaff;
+            font-size: 1.24em;
+        }
+        .form-desc {
+            color: #185676;
+            font-size: 1.1em;
+            margin-bottom: 18px;
+        }
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1.16em;
+        }
+        .input-row i {
+            color: #64ffda;
+            font-size: 1.21em;
+        }
+        .input-row input[type="text"], .input-row select {
+            flex: 1;
+            padding: 10px 13px;
+            font-size: 1.07em;
+            border-radius: 10px;
+            border: 1.5px solid #badbf7;
+            background: #f7fcff;
+            color: #2e5da8;
+        }
+        .input-row input:focus, .input-row select:focus {
+            border-color: #64ffda;
+        }
+        .gender-label {
+            font-size: 1.05em;
+            color: #185676;
+            font-weight: 600;
+            margin: 0 0 .2em 7px;
+            text-align: left;
+        }
+        .gender-group {
+            display: flex;
+            gap: 2em;
+            margin-left: 23px;
+            margin-bottom: 1.38em;
+        }
+        .gender-group label {
+            font-size: 1.01em;
+            color: #185676;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .gender-group input[type="radio"] {
+            accent-color: #64ffda;
+            margin-right: .3em;
+            cursor: pointer;
+        }
+        .save-btn {
+            margin-top: 1.45em;
+            width: 100%;
+            padding: 13px 0;
+            font-weight: 700;
+            font-size: 1.10em;
+            background: linear-gradient(90deg,#57aaff,#64ffda 80%);
+            color: #fff;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(100,170,250,0.11);
+            letter-spacing: 0.4px;
+            transition: background 0.27s;
+        }
+        .save-btn:hover {
+            background: linear-gradient(90deg,#64ffda,#57aaff 100%);
+        }
+        .form-footer {
+            margin-top: 2.2em;
+            text-align: center;
+            font-size: 1em;
+            color: #70acd7;
+        }
+        .form-footer i { margin: 0 4px; color: #41b8f6;}
+        @media (max-width:800px) {
+            .top-nav {flex-direction: column; gap: 2px; padding: 0 1.5vw;}
+            .nav-links {gap: 15px;}
+        }
+        @media (max-width:600px) {
+            .container {padding: 0 4px;}
+            .form-card { padding: 18px 5px 12px 5px;}
+            .top-nav {flex-direction: column; gap: 0; padding: 0;}
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-brand">
+            <i class="fas fa-server"></i>
+            Group 8 IT Portal
+        </div>
+        <div class="nav-links">
+            <a class="nav-link active" href="insert.html" title="Insert">
+                <i class="fas fa-database"></i>
+                Insert
+            </a>
+            <a class="nav-link" href="search.html" title="Search">
+                <i class="fas fa-search"></i>
+                Search
+            </a>
+            <a class="nav-link" href="update.html" title="Update">
+                <i class="fas fa-code-branch"></i>
+                Update
+            </a>
+            <a class="nav-link" href="delete.html" title="Delete">
+                <i class="fas fa-times-circle"></i>
+                Delete
+            </a>
+        </div>
+    </nav>
+    <div class="container">
+        <form class="form-card" action="dbconnect.php" method="POST">
+            <div class="form-header">
+                <i class="fas fa-database"></i>
+                Registration Form
+            </div>
+            <div class="form-desc">
+                <i class="fas fa-info-circle"></i> Enter your information below.
+            </div>
+            <div class="input-row">
+                <i class="fas fa-user"></i>
+                <input type="text" name="fname" placeholder="First Name" required />
+            </div>
+            <div class="input-row">
+                <i class="fas fa-user"></i>
+                <input type="text" name="mname" placeholder="Middle Name" />
+            </div>
+            <div class="input-row">
+                <i class="fas fa-user"></i>
+                <input type="text" name="lname" placeholder="Last Name" required />
+            </div>
+            <div class="gender-label"><i class="fas fa-venus-mars"></i> Sex</div>
+            <div class="gender-group">
+                <label><input type="radio" name="sex" value="Male" required /> Male</label>
+                <label><input type="radio" name="sex" value="Female" /> Female</label>
+            </div>
+            <div class="input-row">
+                <i class="fas fa-layer-group"></i>
+                <select name="level" required>
+                    <option value="" disabled selected>Select Year Level</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div class="input-row">
+                <i class="fas fa-graduation-cap"></i>
+                <select name="course" required>
+                    <option value="" disabled selected>Select Course</option>
+                    <option value="BSIT">BSIT</option>
+                    <option value="BSCS">BSCS</option>
+                    <option value="BSIS">BSIS</option>
+                    <option value="BLIS">BLIS</option>
+                </select>
+            </div>
+            <button type="submit" class="save-btn"><i class="fas fa-database"></i> Save</button>
+            <div class="form-footer">
+                Powered by PHP & MySQL <i class="fas fa-code"></i>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
